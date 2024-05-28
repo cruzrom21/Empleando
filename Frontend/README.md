@@ -1,27 +1,63 @@
-# Empleo
+# Empleando
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+Una plataforma web para la gestión de ofertas de empleo y búsqueda de candidatos, diseñada para conectar empresas y candidatos.
 
-## Development server
+## Tabla de Contenidos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Descripción](#descripción)
+- [Características](#características)
+- [Requisitos Previos](#requisitos-previos)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Scripts Disponibles](#scripts-disponibles)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
+- [Contacto](#contacto)
 
-## Code scaffolding
+## Descripción
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este proyecto es una aplicación web que permite a las empresas buscar candidatos, crear ofertas de empleo y gestionar su perfil. Los candidatos pueden buscar ofertas de empleo, aplicar a ellas y gestionar su hoja de vida. La aplicación utiliza Angular para el frontend y .NET C# para el backend.
 
-## Build
+## Características
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Rol Empresa
+- Búsqueda de candidatos.
+- Creación y gestión de ofertas de empleo.
+- Gestión de la información del perfil de la empresa.
 
-## Running unit tests
+### Rol Candidato
+- Búsqueda de ofertas de empleo.
+- Aplicación a ofertas de empleo.
+- Creación y gestión de la hoja de vida.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Requisitos Previos
 
-## Running end-to-end tests
+- [Node.js](https://nodejs.org/) (versión recomendada: 20.x o superior)
+- [Angular CLI](https://angular.io/cli) (versión recomendada: 18.x o superior)
+- [.NET SDK](https://dotnet.microsoft.com/download) (versión recomendada: 8.0 o superior)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Instalación
 
-## Further help
+### Frontend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/cruzrom21/Empleando.git
+    cd Empleando
+    ```
+
+2. Instala las dependencias del proyecto:
+    ```bash
+    npm install
+    ```
+
+
+## Uso
+
+### Frontend
+
+Para iniciar el servidor de desarrollo del frontend:
+
+```bash
+ng serve
