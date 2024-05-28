@@ -60,7 +60,6 @@ Este proyecto es una aplicación web que permite a las empresas buscar candidato
     ```bash
     npm install
     ```
-    ```
 
 ### Backend
 
