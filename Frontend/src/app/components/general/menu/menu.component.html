@@ -1,0 +1,46 @@
+<!-- Barra superior con logo e información del usuario -->
+<div class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto flex justify-between items-center px-4"> 
+        <a class="text-white text-xl font-bold">Empleando</a>
+   
+        <div>            
+            <span class="mr-2"><b>Usuario:</b> {{ response.respuesta.email }} - 
+                <a *ngIf="rol == '1'" [routerLink]="['/companies/profile']" class="text-blue-300 hover:underline" >
+                    Ver perfil
+                </a>
+                <a *ngIf="rol == '2'" [routerLink]="['/employee/profile']" class="text-blue-300 hover:underline" >
+                    Ver perfil
+                </a>
+            </span>
+            |
+            <a *ngIf="rol == '0'" [routerLink]="['/']" class="text-blue-300 hover:underline">Iniciar sesión</a>
+            <a *ngIf="rol > '0'" class="text-blue-300 hover:underline" (click)="CerrarSesion()">Cerrar sesión</a>
+        </div>
+    </div>
+</div>
+
+<!-- Menú superior -->
+<nav class="bg-blue-500 py-4 mb-6">
+    <div class="container mx-auto flex justify-between items-center px-4">
+        <!-- Enlaces del menú -->
+
+        <ul *ngIf="rol == '0'" class="flex space-x-4">
+            <li><a [routerLink]="['/employee/home']" class="text-white hover:text-gray-200">Inicio</a></li>
+            <li><a [routerLink]="['/employee/jobs']" class="text-white hover:text-gray-200">Buscar trabajo</a></li>
+            <li><a [routerLink]="['/employee/companies']" class="text-white hover:text-gray-200">Empresas</a></li>
+        </ul>
+
+        <ul *ngIf="rol == '1'" class="flex space-x-4">
+            <li><a [routerLink]="['/companies/home']" class="text-white hover:text-gray-200">Inicio</a></li>
+            <li><a [routerLink]="['/companies/candidate']" class="text-white hover:text-gray-200">Buscar candidato</a></li>
+            <li><a [routerLink]="['/companies/offers']" class="text-white hover:text-gray-200">Mis ofertas</a></li>
+        </ul>
+
+        <ul *ngIf="rol == '2'" class="flex space-x-4">
+            <li><a [routerLink]="['/employee/home']" class="text-white hover:text-gray-200">Inicio</a></li>
+            <li><a [routerLink]="['/employee/jobs']" class="text-white hover:text-gray-200">Buscar trabajo</a></li>
+            <li><a [routerLink]="['/employee/companies']" class="text-white hover:text-gray-200">Empresas</a></li>
+        </ul>
+
+    </div>
+</nav>

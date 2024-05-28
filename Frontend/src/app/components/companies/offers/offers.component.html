@@ -1,0 +1,122 @@
+<div class="container mx-auto p-4">
+    <div class="bg-white p-6 rounded-lg shadow mb-8">
+        <h2 class="text-xl font-bold mb-4">Mis ofertas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div *ngFor="let o of arrOffer()">
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">{{ o.title }}</h3>
+                    <p class="text-gray-700">Empresa: {{ o.company }}</p>
+                    <p class="text-gray-700">Ubicación: {{ o.location }}</p>
+                    <p class="text-gray-700">Salario: $ {{ o.salary }}</p>
+                    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+                        [routerLink]="['/companies/offersdes/', o.idOffer]">Ver más</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <form [formGroup]="offerFrom" (ngSubmit)="onSubmitEx()">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4">Crear oferta</h2>
+
+            <div class="mb-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="col-span-2">
+                        <label for="Title" class="block text-sm font-medium text-gray-700">Cargo</label>
+                        <input type="text" id="Title" name="Title" formControlName="Title"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('Title')?.invalid && offerFrom.get('Title')?.touched ? 'border-red-500' : '' }}">
+
+                        <div *ngIf="offerFrom.get('Title')?.hasError('required') && offerFrom.get('Title')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+                    <div>
+                        <label for="Location" class="block text-sm font-medium text-gray-700">Ubicación</label>
+                        <input type="text" id="Location" name="Location" formControlName="Location"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('Location')?.invalid && offerFrom.get('Location')?.touched ? 'border-red-500' : '' }}">
+
+                        <div *ngIf="offerFrom.get('Location')?.hasError('required') && offerFrom.get('Location')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+                    <div>
+                        <label for="TypeContract" class="block text-sm font-medium text-gray-700">Tipo de
+                            contrato</label>
+                        <input type="text" id="TypeContract" name="TypeContract" formControlName="TypeContract"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('TypeContract')?.invalid && offerFrom.get('TypeContract')?.touched ? 'border-red-500' : '' }}">
+
+                        <div *ngIf="offerFrom.get('TypeContract')?.hasError('required') && offerFrom.get('TypeContract')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+                    <div>
+                        <label for="Salary" class="block text-sm font-medium text-gray-700">Salario</label>
+                        <input type="number" id="Salary" name="Salary" formControlName="Salary"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('Salary')?.invalid && offerFrom.get('Salary')?.touched ? 'border-red-500' : '' }}">
+
+                        <div *ngIf="offerFrom.get('Salary')?.hasError('required') && offerFrom.get('Salary')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+                    <div>
+                        <label for="ExpirationDate" class="block text-sm font-medium text-gray-700">Ultima fecha de
+                            envio</label>
+                        <input type="date" id="ExpirationDate" name="ExpirationDate" formControlName="ExpirationDate"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('ExpirationDate')?.invalid && offerFrom.get('ExpirationDate')?.touched ? 'border-red-500' : '' }}">
+
+                        <div *ngIf="offerFrom.get('ExpirationDate')?.hasError('required') && offerFrom.get('ExpirationDate')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+                    <div>
+                        <label for="Description" class="block text-sm font-medium text-gray-700">Descripción del
+                            Trabajo</label>
+                        <textarea id="Description" name="Description" rows="4" formControlName="Description"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('Description')?.invalid && offerFrom.get('Description')?.touched ? 'border-red-500' : '' }}"></textarea>
+
+                        <div *ngIf="offerFrom.get('Description')?.hasError('required') && offerFrom.get('Description')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+
+                        <div *ngIf="offerFrom.get('Description')?.hasError('maxlength') && offerFrom.get('Description')?.touched"
+                            class="text-red-500 text-sm mt-1">Debe tener maximo 150 caracteres</div>
+                    </div>
+                    <div>
+                        <label for="habilidad" class="block text-sm font-medium text-gray-700">Agregar
+                            habilidades (control + select)</label>
+                        <select multiple id="habilidad" name="habilidad" formControlName="habilidad"
+                            class="w-full px-3 py-2 border rounded-md mt-1 {{ offerFrom.get('habilidad')?.invalid && offerFrom.get('habilidad')?.touched ? 'border-red-500' : '' }}">
+                            <option *ngFor="let s of arrSkill()" value="{{ s.idSkills }}">{{ s.skill1 }}</option>
+                        </select>
+
+                        <div *ngIf="offerFrom.get('habilidad')?.hasError('required') && offerFrom.get('habilidad')?.touched"
+                            class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+                    </div>
+
+
+                    <div class="flex justify-end col-span-2">
+                        <button type="submit"
+                            [ngClass]="{ 'opacity-50 cursor-not-allowed': offerFrom.invalid, 'opacity-100 cursor-pointer': !offerFrom.invalid }"
+                            [disabled]="offerFrom.invalid"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Crear
+                            oferta</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div *ngIf="alertSuccess"
+    class="fixed top-0 right-0 mt-10 mr-10 z-50 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-lg"
+    role="alert">
+    <strong class="font-bold">Éxito!</strong><br>
+    <span class="block sm:inline">{{ response.mensaje }}</span>
+</div>
+
+<div *ngIf="alertError"
+    class="fixed top-0 right-0 mt-10 mr-10 z-50 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-lg"
+    role="alert">
+    <strong class="font-bold">Error!</strong><br>
+    <span class="block sm:inline">{{ response.mensaje }}</span>
+</div>

@@ -1,0 +1,54 @@
+<div class="flex justify-center items-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md max-w-md w-full">
+        <h2 class="text-2xl font-semibold mb-4">Iniciar sesión</h2>
+
+        <form [formGroup]="loginFrom" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Correo electrónico</label>
+                <input type="email" id="email" name="email" formControlName="email" placeholder="example@example.com"
+                    class="w-full px-3 py-2 border rounded-md outline-none focus:border-blue-500 {{ loginFrom.get('email')?.invalid && loginFrom.get('email')?.touched ? 'border-red-500' : '' }}">
+
+                <div *ngIf="loginFrom.get('email')?.hasError('required') && loginFrom.get('email')?.touched"
+                    class="text-red-500 text-sm mt-1">Este campo es obligatorio</div>
+
+                <div *ngIf="loginFrom.get('email')?.hasError('email') && loginFrom.get('email')?.touched"
+                    class="text-red-500 text-sm mt-1">Ingrese un correo valido</div>
+
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+                <input type="password" id="password" name="password" formControlName="password" placeholder="********"
+                    class="w-full px-3 py-2 border rounded-md outline-none focus:border-blue-500 {{ loginFrom.get('password')?.invalid && loginFrom.get('password')?.touched ? 'border-red-500' : '' }}">
+
+                <div *ngIf="loginFrom.get('password')?.hasError('required') && loginFrom.get('password')?.touched"
+                    class="text-red-500 text-sm mt-1">Este campo es obligatoria</div>
+            </div>
+            <div class="mb-4">
+                <div *ngIf="alertSuccess"
+                    class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                    <strong class="font-bold">Éxito!</strong><br>
+                    <span class="block sm:inline">{{ response.mensaje }}</span>
+                </div>
+
+                <div *ngIf="alertError" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                    role="alert">
+                    <strong class="font-bold">Error!</strong><br>
+                    <span class="block sm:inline">{{ response.mensaje  }}</span>
+                </div>
+            </div>
+
+            <button type="submit"
+                [ngClass]="{ 'opacity-50 cursor-not-allowed': loginFrom.invalid, 'opacity-100 cursor-pointer': !loginFrom.invalid }"
+                [disabled]="loginFrom.invalid"
+                class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Iniciar
+                sesión</button>
+
+        </form>
+
+        <div class="mt-4 text-sm">
+            <p>¿No tienes una cuenta? <a [routerLink]="['/register']" class="text-blue-500 hover:underline">Regístrate aquí</a></p>
+            <p class="mt-2">¿Quieres continuar sin sesión? <a [routerLink]="['/employee/home']" class="text-blue-500 hover:underline">Continuar
+                    sin sesión</a></p>
+        </div>
+    </div>
+</div>

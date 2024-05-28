@@ -1,0 +1,41 @@
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Columna de búsqueda -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h2 class="text-lg font-bold mb-4">Buscar Puesto</h2>
+            <div class="mb-4">
+                <input type="text" placeholder="Buscar..." class="w-full p-2 border rounded-md" #clave
+                    (keyup.enter)="Buscar(clave.value)">
+            </div>
+            <button class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 transition-colors mb-4"
+                (click)="Buscar(clave.value)">Buscar</button>
+
+            <p class="text-gray-700 opacity-50">Busca el puesto en el que estés interesado o una habilidad que te
+                represente. Ejemplo: Desarrollador móvil o solo .Net.</p>
+        </div>
+
+        <!-- Columna de tarjetas -->
+        <div class="md:col-span-2">
+            <div class="grid gap-8">
+
+                <div class="mb-4" *ngIf="alertError">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <span class="block sm:inline">{{ response.mensaje }}</span>
+                    </div>
+                </div>
+
+                <div *ngFor="let o of arrOffer()">
+                    <div class="bg-white p-6 rounded-lg shadow">
+                        <h3 class="text-xl font-bold mb-2">{{ o.title }}</h3>
+                        <p class="text-gray-700">Empresa: {{ o.company }}</p>
+                        <p class="text-gray-700">Ubicación: {{ o.location }}</p>
+                        <p class="text-gray-700">Salario: $ {{ o.salary }}</p>
+                        <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
+                            [routerLink]="['/employee/jobdes/', o.idOffer]">Ver más</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
