@@ -1,8 +1,13 @@
 <div class="container mx-auto p-4">
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-        <h2 class="text-xl font-bold mb-4">Mis ofertas</h2>
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Mis ofertas</h2>
+            <button (click)="scrollToSection()" class="bg-blue-500 text-white px-4 py-2 rounded-md">
+                Crear oferta
+            </button>
+        </div>
+    
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
             <div *ngFor="let o of arrOffer()">
                 <div class="bg-gray-100 p-6 rounded-lg shadow">
                     <h3 class="text-xl font-bold mb-2">{{ o.title }}</h3>
@@ -13,11 +18,10 @@
                         [routerLink]="['/companies/offersdes/', o.idOffer]">Ver más</button>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <form [formGroup]="offerFrom" (ngSubmit)="onSubmitEx()">
+    <form [formGroup]="offerFrom" #targetSection (ngSubmit)="onSubmitEx()">
         <div class="bg-white p-6 rounded-lg shadow">
             <h2 class="text-2xl font-bold mb-4">Crear oferta</h2>
 

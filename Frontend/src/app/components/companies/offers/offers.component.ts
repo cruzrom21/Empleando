@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, signal } from '@angular/core';
 import { response } from '../../../core/models/response';
 import { Offer } from '../../../core/models/Offer';
 import { ApiService } from '../../../core/services/api.service';
@@ -28,6 +28,8 @@ export class OffersComponent {
   offerFrom: FormGroup
   arrOffer = signal<Offer[]>([])
   arrSkill = signal<any>([])
+
+  @ViewChild('targetSection') targetSection!: ElementRef;
 
   constructor(private services: ApiService, private jwtServices: JwtService, private router: Router) {
     this.offerFrom = new FormGroup({
@@ -73,6 +75,12 @@ export class OffersComponent {
 
     } else {
       this.router.navigate(['/login']);
+    }
+  }
+
+  scrollToSection() {
+    if (this.targetSection) {
+      this.targetSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
