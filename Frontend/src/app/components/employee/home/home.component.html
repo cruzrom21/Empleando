@@ -18,7 +18,7 @@
             <span class="block sm:inline">{{ response.mensaje }}</span>
         </div>
 
-        <div *ngIf="responseData.respuesta == 'Error'"
+        <div *ngIf="tieneData == 'Error'"
             class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Completa tu perfil</strong><br>
             <span class="block sm:inline">Completa la informacion de tu perfil para que sea visible en a los puestos que apliques</span>

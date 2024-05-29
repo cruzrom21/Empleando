@@ -21,6 +21,8 @@ export class HomeEmployeeComponent {
   alertError: boolean = false
 
   token: string = localStorage.getItem('tokenEmpleando')!
+
+  tieneData: string = ""
   
   arrOffer = signal<Offer[]>([])
 
@@ -29,8 +31,6 @@ export class HomeEmployeeComponent {
 
   async ngOnInit () {
     this.alertError = false;
-
-    const token = localStorage.getItem('tokenEmpleando');
 
     if (!this.jwtServices.isTokenExpired(this.token)) {
       this.response = await firstValueFrom(this.services.ListarEmpleosSesion())     
@@ -45,7 +45,11 @@ export class HomeEmployeeComponent {
       this.alertError = true;
     }
 
-    this.responseData = await firstValueFrom(this.services.TieneData())
+    if (!this.jwtServices.isTokenExpired(this.token)) {
+      this.responseData = await firstValueFrom(this.services.TieneData()) 
+      this.tieneData = this.responseData.respuesta
+    }
+    
   }
 
   Buscar(clave: string) {
