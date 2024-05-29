@@ -67,7 +67,7 @@ Se recomienda abrir el proyecto en Visual Studio.
 
 1. Navega a la carpeta del backend:
     ```bash
-    cd backend
+    cd backend/ApiEmpleando
     ```
 
 2. Restaura las dependencias del proyecto:
