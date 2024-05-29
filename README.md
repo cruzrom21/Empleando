@@ -48,6 +48,14 @@ Este proyecto es una aplicación web que permite a las empresas buscar candidato
 
 2. Ejecutar script ScriptEmpleando.sql
 
+Nota: Si se restaura la base de datos en un servidor local, se recomienda:
+
+    - Crear un usuario con autenticación SQL.
+    - Activar el inicio de sesión por SQL Server.
+    - Reiniciar el servicio de SQL Server.
+    
+Esto facilitará la conexión con la API .NET.
+
 
 ### Frontend
 
@@ -78,9 +86,18 @@ Se recomienda abrir el proyecto en Visual Studio.
 o en Visual Studio, click derecho en la solicion y "Restaurar paquetes de NuGet"
 
 3. Configura la ruta de la base de datos:
+   
     - Abre el archivo `appsettings.json`.
     - Busca la sección `ConnectionStrings`.
-    - Cambia la ruta de la base de datos según sea necesario.
+    - Cambia la ruta de la base de datos.
+  
+Deberia verse de esta forma:
+  ```json
+   {
+     "ConnectionStrings": {
+       "Connection": "Server=your_server_name;Database=your_database_name;User Id=your_sql_user;Password=your_password;TrustServerCertificate=true;"
+     }
+   }
 
 
 
