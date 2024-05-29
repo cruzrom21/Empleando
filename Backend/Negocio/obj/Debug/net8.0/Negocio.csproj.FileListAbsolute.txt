@@ -1,0 +1,15 @@
+C:\Users\cruzr\source\repos\Negocio\bin\Debug\net8.0\Negocio.deps.json
+C:\Users\cruzr\source\repos\Negocio\bin\Debug\net8.0\Negocio.dll
+C:\Users\cruzr\source\repos\Negocio\bin\Debug\net8.0\Negocio.pdb
+C:\Users\cruzr\source\repos\Negocio\bin\Debug\net8.0\Datos.dll
+C:\Users\cruzr\source\repos\Negocio\bin\Debug\net8.0\Datos.pdb
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.csproj.AssemblyReference.cache
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.AssemblyInfoInputs.cache
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.AssemblyInfo.cs
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.csproj.Up2Date
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.dll
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\refint\Negocio.dll
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\Negocio.pdb
+C:\Users\cruzr\source\repos\Negocio\obj\Debug\net8.0\ref\Negocio.dll
